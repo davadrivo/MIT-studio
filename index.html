@@ -76,7 +76,7 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
   border: 1px solid var(--line);
   background: #fff;
   padding: 18px;
-  /* Добавляем transition для плавности тени */
+  /* ГЛАВНАЯ СТРОКА: Плавный переход тени за 0.3 секунды */
   transition: box-shadow .3s ease; 
 }
 
@@ -107,11 +107,6 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 .kpi div{flex:1;border-radius:14px;border:1px solid var(--line);padding:14px;text-align:center;background:#fff;transition:transform .3s ease,box-shadow .3s ease}
 .kpi div:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 10px 20px rgba(180,132,92,.15)}
 .showcase{padding:40px 0}
-.scroller{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.portfolio-item{aspect-ratio:4/3;border-radius:16px;border:1px solid var(--line);overflow:hidden;position:relative;transition:transform .3s ease,box-shadow .3s ease,opacity .3s ease;z-index:1}
-.portfolio-item img{width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;transition:transform .3s ease}
-.portfolio-item:hover{transform:translateY(-10px) scale(1.04);box-shadow:0 20px 40px rgba(180,132,92,.35);z-index:10}
-.scroller:hover .portfolio-item:not(:hover){transform:scale(.95);opacity:.7;box-shadow:none}
 .testimonials{padding:40px 0}
 .quote{display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff;transition:transform .3s ease,box-shadow .3s ease}
 .quote:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 10px 20px rgba(180,132,92,.1)}
@@ -126,7 +121,7 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 .lang{display:flex;gap:8px}
 .lang a{color:var(--muted);text-decoration:none;font-weight:700;cursor:pointer}
 .lang a.active{color:var(--brand)}
-.fadeup{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.fadeup{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease,box-shadow .3s ease}
 .fadeup.show{opacity:1;transform:translateY(0)}
 .contact-actions{display:flex;flex-direction:column;gap:10px;margin-top:20px;align-items:center}
 .contact-action-btn{width:auto;text-decoration:none}
@@ -208,6 +203,102 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
   object-fit: contain; /* Картинка будет вписываться, сохраняя пропорции */
   pointer-events: none; /* Пропускаем клики сквозь маску, если она пустая */
   z-index: 10; /* Убедимся, что рамка всегда сверху */
+}
+/* --- Новые стили для компактного статического Портфолио (3 колонки) --- */
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 одинаковые колонки */
+    gap: 16px; /* Отступы как в feature-grid */
+}
+.case-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: #fff;
+    overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.case-item:hover {
+    transform: translateY(-6px) scale(1.02); /* Эффект как у стандартной .card */
+    box-shadow: 0 12px 24px rgba(180,132,92,.2);
+}
+
+.case-image {
+    aspect-ratio: 4/2.5; 
+    overflow: hidden;
+    border-bottom: 1px solid var(--line); /* Добавляем разделитель */
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.case-content {
+    padding: 18px;
+    flex-grow: 1; /* Оставляем только, чтобы карточки были одинаковой высоты */
+    display: flex; /* ВОТ ЭТО ГЛАВНОЕ: ДЕЛАЕМ ЕГО FLEX */
+    flex-direction: column; /* И УСТАНАВЛИВАЕМ НАПРАВЛЕНИЕ */
+}
+
+/* Новый класс, который прижмет метрики к верху, а резюме — к низу */
+.case-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Заставляет враппер занимать все доступное место */
+    justify-content: space-between; /* Главный трюк для выравнивания */
+}
+
+.case-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--brand); 
+}
+
+.case-metrics h4, .case-summary h4 {
+    font-size: 15px; /* Очень компактный размер */
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    color: var(--text);
+}
+
+.case-metrics ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px 0;
+}
+
+.case-metrics ul li {
+    color: var(--muted);
+    line-height: 1.4;
+    padding: 2px 0;
+    font-size: 14px; /* Самый мелкий текст */
+}
+
+.case-summary {
+    padding: 10px;
+    background: var(--bg);
+    border-radius: 10px;
+}
+
+.case-summary p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width:900px){
+  .case-grid {
+    grid-template-columns: 1fr; /* На мобильных устройствах — один столбец */
+  }
 }
 </style>
 </head>
@@ -361,18 +452,98 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 <div class="container">
 <div class="section-title">
 <h2 data-ru="Наши работы" data-en="Our works">Наши работы</h2>
-<span class="tag" data-ru="недавние работы" data-en="portfolio under development">недавние работы</span>
+<span class="tag" data-ru="Результаты говорят сами за себя" data-en="Results speak for themselves">Результаты говорят сами за себя</span>
 </div>
-<div class="scroller">
-  <div class="portfolio-item">
-    <img src="https://github.com/davadrivo/MIT-studio/blob/main/amoService22.png?raw=true" alt="Описание проекта 1">
+
+<div class="case-grid"> 
+
+  <div class="case-item fadeup">
+    <div class="case-image">
+      <img src="https://github.com/davadrivo/MIT-studio/blob/main/amoService22.png?raw=true" alt="Сайт для amoService">
+    </div>
+    <div class="case-content">
+      <h3 data-ru="amoService" data-en="amoService">amoService</h3>
+      
+      <div class="case-content-wrapper"> 
+          
+        <div class="case-metrics">
+          <h4 data-ru="Результаты за 2 недели:" data-en="Results in 2 weeks:">Результаты за 2 недели:</h4>
+          <ul>
+            <li data-ru="<b>+18</b> новых заявок на ремонт" data-en="<b>+18</b> new repair inquiries"><b>+18</b> новых заявок на ремонт</li>
+            <li data-ru="Средний чек вырос на <b>27%</b>" data-en="Average check increased by <b>27%</b>">Средний чек вырос на <b>27%</b></li>
+            <li data-ru="Клиенты стали чаще оставлять контакты через сайт" data-en="Clients more often leave contacts via website">Клиенты стали чаще оставлять контакты через сайт</li>
+          </ul>
+        </div>
+        
+        <div class="case-summary">
+          <h4 data-ru="Общий результат:" data-en="Overall result:">Общий результат:</h4>
+          <p data-ru="Сайт стал точкой входа для новых клиентов, помог увеличить количество звонков и записей." data-en="The website became the entry point for new clients, helping increase the number of calls and service appointments.">
+            Сайт стал точкой входа для новых клиентов, помог увеличить количество звонков и записей.
+          </p>
+        </div>
+        
+      </div>
+      </div>
   </div>
-  <div class="portfolio-item">
-    <img src="https://github.com/davadrivo/MIT-studio/blob/main/MINOR22.png?raw=true" alt="Описание проекта 2">
+
+  <div class="case-item fadeup">
+    <div class="case-image">
+      <img src="https://github.com/davadrivo/MIT-studio/blob/main/MINOR22.png?raw=true" alt="Сайт для MINOR">
+    </div>
+    <div class="case-content">
+      <h3 data-ru="MINOR" data-en="MINOR">MINOR</h3>
+      
+      <div class="case-content-wrapper">
+          
+        <div class="case-metrics">
+          <h4 data-ru="Результаты за первый месяц:" data-en="Results in the first month:">Результаты за первый месяц:</h4>
+          <ul>
+            <li data-ru="<b>+12</b> заказов столиков через сайт" data-en="<b>+12</b> table reservations via website"><b>+12</b> заказов столиков через сайт</li>
+            <li data-ru="<b>+230</b> переходов с рекламы в Instagram" data-en="<b>+230</b> transitions from Instagram ads"><b>+230</b> переходов с рекламы в Instagram</li>
+            <li data-ru="Рост постоянных клиентов на <b>15%</b>" data-en="Increase in regular customers by <b>15%</b>">Рост постоянных клиентов на <b>15%</b></li>
+          </ul>
+        </div>
+        
+        <div class="case-summary">
+          <h4 data-ru="Общий результат:" data-en="Overall result:">Общий результат:</h4>
+          <p data-ru="Сайт показал себя как инструмент продвижения и брони столиков, усилил лояльность постоянных гостей." data-en="The website proved to be a powerful tool for promotion and table booking, strengthening the loyalty of regular guests.">
+            Сайт показал себя как инструмент продвижения и брони столиков, усилил лояльность постоянных гостей.
+          </p>
+        </div>
+      
+      </div>
+      </div>
   </div>
-  <div class="portfolio-item">
-    <img src="https://github.com/davadrivo/MIT-studio/blob/main/%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%BC%D0%B8%D1%8022.png?raw=true" alt="Описание проекта 3">
+  
+  <div class="case-item fadeup">
+    <div class="case-image">
+      <img src="https://github.com/davadrivo/MIT-studio/blob/main/%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%BC%D0%B8%D1%8022.png?raw=true" alt="Сайт для ПРОДУКТмир">
+    </div>
+    <div class="case-content">
+      <h3 data-ru="ПРОДУКТмир" data-en="PRODUKTmir">ПРОДУКТмир</h3>
+      
+      <div class="case-content-wrapper">
+      
+        <div class="case-metrics">
+          <h4 data-ru="Результаты за 3 недели:" data-en="Results in 3 weeks:">Результаты за 3 недели:</h4>
+          <ul>
+            <li data-ru="<b>+36</b> новых заказов онлайн" data-en="<b>+36</b> new orders online"><b>+36</b> новых заказов онлайн</li>
+            <li data-ru="<b>+70%</b> трафика пришло с рекламы в Яндекс" data-en="<b>+70%</b> traffic came from Yandex ads"><b>+70%</b> трафика пришло с рекламы в Яндекс</li>
+            <li data-ru="Время на сайте — в среднем <b>3,2 минуты</b>" data-en="Time on site — average <b>3.2 minutes</b>">Время на сайте — в среднем <b>3,2 минуты</b></li>
+          </ul>
+        </div>
+        
+        <div class="case-summary">
+          <h4 data-ru="Общий результат:" data-en="Overall result:">Общий результат:</h4>
+          <p data-ru="Сайт стал точкой удобного заказа продуктов, увеличил количество повторных клиентов." data-en="The website became a convenient ordering point for products, increasing the number of repeat customers.">
+            Сайт стал точкой удобного заказа продуктов, увеличил количество повторных клиентов.
+          </p>
+        </div>
+      
+      </div>
+      </div>
   </div>
+  
 </div>
 </div>
 </section>
@@ -429,10 +600,14 @@ const langRU = document.getElementById('lang-ru');
 const langEN = document.getElementById('lang-en');
 const elements = document.querySelectorAll('[data-ru], [data-text-ru]');
 
+
+// ИСПРАВЛЕННАЯ ФУНКЦИЯ setLanguage
 function setLanguage(lang) {
 elements.forEach(el => {
 const textData = (lang === 'ru') ? el.dataset.ru : el.dataset.en;
-if (el.dataset.ru && (el.tagName === 'H1' || el.tagName === 'A' || el.tagName === 'P' || el.tagName === 'H2')) {
+
+// Добавляем 'LI' в список тегов, которым разрешен HTML (для жирного текста в метриках)
+if (el.dataset.ru && (el.tagName === 'H1' || el.tagName === 'A' || el.tagName === 'P' || el.tagName === 'H2' || el.tagName === 'LI')) {
 el.innerHTML = textData;
 } else if (el.dataset.ru) {
 el.textContent = textData;
@@ -505,9 +680,6 @@ function changeMockupImage() {
   }, 700); // Должно соответствовать времени transition в CSS
 }
 
-// --- Запускаем анимацию ---
-// Запускаем смену картинок каждые 4 секунды (4000 мс)
-// changeMockupImage() вызовется в первый раз только через 4000 мс
 setInterval(changeMockupImage, 5000);
 </script>
 
