@@ -41,7 +41,7 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 .features{padding:40px 0}
 /* Добавляем класс, который сдвинет картинку */
 .hero-image-move {
-  /* Сдвиг влево на -10px и сдвиг вниз на 20px */
+  /* Сдвиг влево на -40px и сдвиг вниз на 10px */
   transform: translate(-10px, 20px); 
 }
 
@@ -145,31 +145,9 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 .hero div, .cta-box div, .section-title, .kpi, .footer div {
   text-align: center;
 }
-/* 🔥 ИСПРАВЛЕНИЕ 1: Сброс сдвига макета на мобильных */
-.hero-image-move {
-  transform: none; 
-}
 .hero-grid img {
   margin-top: 20px;
 }
-/* 🔥 ИСПРАВЛЕНИЕ 2: Центрирование основного текста (кроме карточек) */
-.hero p, 
-#approach p,
-.cta-box p {
-  text-align: center; 
-}
-/* 🔥 ИСПРАВЛЕНИЕ 3: Сохранение левого выравнивания для текста внутри карточек */
-.card h3, .card p,
-.value-card-block h3, .value-card-block p,
-.case-content h3, .case-metrics h4, .case-metrics ul, .case-metrics ul li, .case-summary h4, .case-summary p
-{
-  text-align: left; 
-}
-/* 🔥 ИСПРАВЛЕНИЕ 4: Центрирование контейнера кнопок связи */
-.contact-actions {
-  align-items: center; 
-}
-
 .scroller {
   grid-template-columns:1fr;
   padding: 0;
@@ -197,9 +175,6 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 }
 .nav .lang {
   display: block;
-}
-.value-grid {
-  grid-template-columns: 1fr; /* На мобильных устройствах — одна колонка */
 }
 }
 .mockup-container {
@@ -289,7 +264,7 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 .case-metrics h4, .case-summary h4 {
     font-size: 15px; /* Очень компактный размер */
     font-weight: 700;
-    margin: 0 0 4px 0;  
+    margin: 0 0 4px 0;
     color: var(--text);
 }
 
