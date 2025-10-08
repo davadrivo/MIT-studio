@@ -1,1 +1,687 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104122581', 'ym');
 
+    ym(104122581, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/104122581" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>МИТ — студия одностраничных сайтов</title>
+<link rel="icon" href="https://files.catbox.moe/rc4hwh.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+#animated-mockup {
+  transition: opacity 0.7s ease-in-out; /* Плавный переход за 1 секунду */
+}
+:root{--bg:#fdfaf6;--muted:#6e5b48;--text:#2c1e13;--brand:#b4845c;--brand-2:#e6d2b5;--line:rgba(0,0,0,.08)}
+*{box-sizing:border-box}
+html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);letter-spacing:.2px}
+.container{width:min(1120px,92%);margin-inline:auto}
+.nav{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,rgba(253,250,246,.96),rgba(253,250,246,.8) 60%,transparent);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.6px;font-size:20px;color:var(--text);text-decoration:none}
+.brand img{height:38px;width:auto;display:block}
+.nav a{color:var(--muted);text-decoration:none;font-weight:600;cursor:pointer}
+.nav ul{display:flex;list-style:none;gap:22px;margin:0;padding:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-weight:800;letter-spacing:.3px;box-shadow:0 6px 18px rgba(180,132,92,.35);transition:transform .2s ease,box-shadow .2s ease;text-decoration:none}
+.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 28px rgba(180,132,92,.45)}
+.hero{padding:40px 0 56px}
+.features{padding:40px 0}
+/* Добавляем класс, который сдвинет картинку */
+.hero-image-move {
+  /* Сдвиг влево на -40px и сдвиг вниз на 10px */
+  transform: translate(-10px, 20px); 
+}
+
+/* Если ты не менял соотношение колонок, используй это: */
+.hero-grid{
+  display:grid;
+  grid-template-columns:0.8fr .8fr; /* Вернем текст (1.2fr) слева, картинку (0.8fr) справа */
+  gap:32px;
+  align-items:center
+}
+.hero h1{font-size:clamp(36px,5vw,58px);line-height:1.05;margin:10px 0 14px}
+.hero p{font-size:clamp(16px,2.2vw,20px);color:var(--muted);margin:0 0 26px}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:700;color:var(--brand)}
+.pulse{width:10px;height:10px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 0 rgba(180,132,92,.7);animation:pulse 2s infinite}
+@keyframes pulse{to{box-shadow:0 0 0 18px rgba(180,132,92,0)}}
+.card{border-radius:18px;border:1px solid var(--line);background:#fff;padding:18px;transition:transform .3s ease,box-shadow .3s ease}
+.card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 12px 24px rgba(180,132,92,.2)}
+.card h3{margin:8px 0 6px;font-size:20px}
+.card p{margin:0;color:var(--muted)}
+.section-title{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.section-title .tag{opacity:.9}
+.tag{display:inline-flex;gap:10px;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid var(--line);font-weight:700;color:var(--muted);background:#fff}
+.grid{display:grid;gap:16px}
+/* --- Стили для сетки 5 Ценностей (2 колонки) --- */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Сетка из двух колонок */
+  gap: 16px;
+}
+.value-card-block {
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #fff;
+  padding: 18px;
+  /* ГЛАВНАЯ СТРОКА: Плавный переход тени за 0.3 секунды */
+  transition: box-shadow .3s ease; 
+}
+
+/* Новый класс для эффекта тени без увеличения */
+.value-card-block:hover {
+  /* Тень как у .card:hover, но без transform */
+  box-shadow: 0 12px 24px rgba(180,132,92,.2);
+}
+.value-card-block h3 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+.value-card-block p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Медиа-запрос для мобильных устройств (убедитесь, что он внутри @media (max-width:900px)) */
+@media (max-width:900px){
+/* ... другие стили ... */
+.value-grid {
+  grid-template-columns: 1fr; /* На мобильных устройствах — одна колонка */
+}
+/* ... другие стили ... */
+}
+.feature-grid{grid-template-columns:repeat(3,1fr)}
+.kpi{display:flex;gap:18px;margin-top:20px}
+.kpi div{flex:1;border-radius:14px;border:1px solid var(--line);padding:14px;text-align:center;background:#fff;transition:transform .3s ease,box-shadow .3s ease}
+.kpi div:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 10px 20px rgba(180,132,92,.15)}
+.showcase{padding:40px 0}
+.testimonials{padding:40px 0}
+.quote{display:grid;grid-template-columns:60px 1fr;gap:16px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff;transition:transform .3s ease,box-shadow .3s ease}
+.quote:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 10px 20px rgba(180,132,92,.1)}
+.avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+.cta{padding:44px 0 64px}
+.cta-box{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center;border:1px solid var(--line);border-radius:22px;padding:24px;background:#fff;transition:transform .3s ease,box-shadow .3s ease}
+.cta-box:hover{transform:translateY(-3px);box-shadow:0 10px 20px rgba(180,132,92,.12)}
+.input{display:flex;gap:10px}
+.input input{flex:1;border-radius:14px;border:1px solid var(--line);background:#faf7f3;padding:12px 14px;color:var(--text);font-weight:600}
+.footer{border-top:1px solid var(--line);padding:18px 0 40px;color:var(--muted)}
+.footer a{color:var(--brand);text-decoration:none;font-weight:700}
+.lang{display:flex;gap:8px}
+.lang a{color:var(--muted);text-decoration:none;font-weight:700;cursor:pointer}
+.lang a.active{color:var(--brand)}
+.fadeup{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease,box-shadow .3s ease}
+.fadeup.show{opacity:1;transform:translateY(0)}
+.contact-actions{display:flex;flex-direction:column;gap:10px;margin-top:20px;align-items:center}
+.contact-action-btn{width:auto;text-decoration:none}
+.old-price{text-decoration:line-through;font-size:.9em;color:inherit;opacity:.6;margin-right:8px}
+.new-price{color:var(--brand);font-weight:800}
+.hero .btn .new-price{color:#fff;margin-left:8px}
+@media (max-width:900px){
+.nav nav {
+  display: none;
+}
+.nav-inner {
+  justify-content: center;
+}
+.container {
+  width: min(1120px, 94%);
+}
+.hero-grid, .cta-box, .feature-grid {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.hero div, .cta-box div, .section-title, .kpi, .footer div {
+  text-align: center;
+}
+.hero-grid img {
+  margin-top: 20px;
+}
+.scroller {
+  grid-template-columns:1fr;
+  padding: 0;
+}
+.portfolio-item:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 12px 24px rgba(180,132,92,.2);
+}
+.scroller:hover .portfolio-item:not(:hover) {
+  transform:scale(1);
+  opacity: 1;
+}
+.contact-actions .contact-action-btn {
+  width: 100%;
+}
+.kpi {
+  flex-direction: column;
+}
+.kpi div {
+  flex: auto;
+}
+.brand {
+  text-align: center;
+  justify-content: center;
+}
+.nav .lang {
+  display: block;
+}
+}
+.mockup-container {
+  position: relative; /* Создаем контекст позиционирования для дочерних элементов */
+  width: 100%; /* Занимает всю доступную ширину */
+  height: 100%; /* Занимает всю доступную высоту */
+  display: flex; /* Используем flexbox для центрирования содержимого */
+  justify-content: center;
+  align-items: center;
+}
+
+.mockup-content {
+  width: 100%; /* Анимированные картинки занимают всю ширину родителя */
+  height: auto; /* Сохраняем пропорции */
+  display: block; /* Убираем лишние отступы */
+  /* Обязательно убираем 'style="width:100%;"' из HTML у animated-mockup и используем этот класс */
+  /* transition: opacity 1s ease-in-out; Это уже есть, но проверь что оно у #animated-mockup */
+}
+
+.mockup-frame {
+  position: absolute; /* Позиционируем поверх других элементов */
+  top: 0;
+  left: 0;
+  width: 100%; /* Занимает всю ширину контейнера */
+  height: 100%; /* Занимает всю высоту контейнера */
+  object-fit: contain; /* Картинка будет вписываться, сохраняя пропорции */
+  pointer-events: none; /* Пропускаем клики сквозь маску, если она пустая */
+  z-index: 10; /* Убедимся, что рамка всегда сверху */
+}
+/* --- Новые стили для компактного статического Портфолио (3 колонки) --- */
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 одинаковые колонки */
+    gap: 16px; /* Отступы как в feature-grid */
+}
+.case-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: #fff;
+    overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.case-item:hover {
+    transform: translateY(-6px) scale(1.02); /* Эффект как у стандартной .card */
+    box-shadow: 0 12px 24px rgba(180,132,92,.2);
+}
+
+.case-image {
+    aspect-ratio: 4/2.5; 
+    overflow: hidden;
+    border-bottom: 1px solid var(--line); /* Добавляем разделитель */
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.case-content {
+    padding: 18px;
+    flex-grow: 1; /* Оставляем только, чтобы карточки были одинаковой высоты */
+    display: flex; /* ВОТ ЭТО ГЛАВНОЕ: ДЕЛАЕМ ЕГО FLEX */
+    flex-direction: column; /* И УСТАНАВЛИВАЕМ НАПРАВЛЕНИЕ */
+}
+
+/* Новый класс, который прижмет метрики к верху, а резюме — к низу */
+.case-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Заставляет враппер занимать все доступное место */
+    justify-content: space-between; /* Главный трюк для выравнивания */
+}
+
+.case-content h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--brand); 
+}
+
+.case-metrics h4, .case-summary h4 {
+    font-size: 15px; /* Очень компактный размер */
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    color: var(--text);
+}
+
+.case-metrics ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px 0;
+}
+
+.case-metrics ul li {
+    color: var(--muted);
+    line-height: 1.4;
+    padding: 2px 0;
+    font-size: 14px; /* Самый мелкий текст */
+}
+
+.case-summary {
+    padding: 10px;
+    background: var(--bg);
+    border-radius: 10px;
+}
+
+.case-summary p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width:900px){
+  .case-grid {
+    grid-template-columns: 1fr; /* На мобильных устройствах — один столбец */
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+<div class="container nav-inner">
+<a href="#" class="brand">
+<img src="https://github.com/davadrivo/MIT-studio/blob/main/%D0%9B%D0%BE%D0%B3%D0%BE.png?raw=true" alt="МИТ Студия Логотип">
+<span></span>
+</a>
+<nav>
+<ul>
+<li><a data-anchor="work" class="nav-link" data-text-ru="Работы" data-text-en="Works">Работы</a></li>
+<li><a data-anchor="values" class="nav-link" data-text-ru="Подход" data-text-en="Approach">Подход</a></li>
+<li><a data-anchor="pricing" class="nav-link" data-text-ru="Стоимость" data-text-en="Pricing">Стоимость</a></li>
+<li><a data-anchor="contact" class="nav-link" data-text-ru="Контакты" data-text-en="Contacts">Контакты</a></li>
+</ul>
+</nav>
+<div class="lang">
+<a id="lang-ru" class="active">RU</a>
+<a id="lang-en">EN</a>
+</div>
+</div>
+</header>
+
+<main>
+<section class="hero fadeup"> 
+<div class="container hero-grid">
+<div>
+<div class="badge"><div class="pulse"></div><span data-ru="Создадим сайт за 4–7 дней" data-en="Websites in 4–7 days">Создадим сайт за 4–7 дней</span></div>
+<h1 data-ru="Сайт для бизнеса<br>за 50 000₸!" data-en="Business website<br>for 50,000 ₸"!>Сайт для бизнеса<br>за 50 000₸!</h1>
+<p data-ru="Быстрый, профессиональный и доступный одностраничный сайт, который представит ваш бизнес быстро и легко за <span style='font-weight:700'>50 000₸</span>" data-en="A quick, professional, and affordable one-page website that presents your business quickly and easily <br>for <span style='font-weight:700'>50 000₸</span>!">
+Быстрый, профессиональный и доступный одностраничный сайт, который представит ваш бизнес быстро и легко за <span style='font-weight:700'>50 000₸</span>!
+</p>
+<a class="btn" data-anchor="pricing" data-ru="Заказать за 50 000₸" data-en="Order for 50,000₸">
+Заказать за 50 000₸
+</a>
+</div>
+<div class="hero-image-move mockup-container">
+  <img id="animated-mockup" src="https://github.com/davadrivo/MIT-studio/blob/main/%D0%9F%D0%A0%D0%9E%D0%94%D0%9A%D0%A3%D0%A2%D0%BC%D0%B8%D1%80.png?raw=true" alt="Превью сайта" class="mockup-content">
+  <img src="https://github.com/davadrivo/MIT-studio/blob/main/212.png?raw=true" alt="Мокап рамки ноутбука" class="mockup-frame">
+</div>
+</div>
+</section>
+
+<section id="approach" class="features fadeup">
+<div class="container">
+<div class="section-title">
+<h2 data-ru="Больше не нужно объяснять 'на пальцах'" data-en="No more 'on-the-fly' explanations">Больше не нужно объяснять "на пальцах"</h2>
+<span class="tag" data-ru="Ваш бизнес в одном клике" data-en="Your business in one click">Ваш бизнес в одном клике</span>
+</div>
+<p data-ru="Было ли у вас такое, что нужно рассказать партнёру, клиенту или сотруднику о вашем бизнесе, но вы не знаете, с чего начать? Как красиво показать свои достижения и примеры работы? Мы создаём одностраничные сайты, которые решают все эти проблемы:<br><br> • <b>Легко</b> — не нужно думать о дизайне, структуре или коде.<br> • <b>Быстро</b> — сайт готов за 4–7 дней.<br> • <b>Доступно</b> — цена стартует с 50 000 ₸.<br> • <b>Профессионально</b> — сайт выглядит современно, презентабельно и сразу продаёт ваш бизнес.<br><br>Лёгкость. Скорость. Доступность. Качество.<br>Ваш бизнес в одном клике: понятно, красиво и быстро." data-en="Have you ever had to explain your business to a partner, client, or employee but didn't know where to start? How to beautifully showcase your achievements and work examples? We create one-page websites that solve all these problems:<br><br> • <b>Easy</b> — you don't have to think about design, structure, or code.<br> • <b>Fast</b> — the website is ready in 4–7 days.<br> • <b>Affordable</b> — the price starts from 50,000 ₸.<br> • <b>Professional</b> — the website looks modern, presentable, and immediately sells your business.<br><br>Ease. Speed. Affordability. Quality.<br>Your business in one click: clear, beautiful, and fast.">
+Было ли у вас такое, что нужно рассказать партнёру, клиенту или сотруднику о вашем бизнесе, но вы не знаете, с чего начать? Как красиво показать свои достижения и примеры работы?
+<br><br>Мы создаём одностраничные сайты, которые решают все эти проблемы:
+<br>• <b>Легко</b> — не нужно думать о дизайне, структуре или коде.
+<br>• <b>Быстро</b> — сайт готов за 4–7 дней.
+<br>• <b>Доступно</b> — цена стартует с 50 000 ₸.
+<br>• <b>Профессионально</b> — сайт выглядит современно, презентабельно и сразу продаёт ваш бизнес.
+<br><br>Лёгкость. Скорость. Доступность. Качество.
+<br>Ваш бизнес в одном клике: понятно, красиво и быстро.
+</p>
+</div>
+</section>
+
+<section id="values" class="features fadeup">
+  <div class="container">
+    
+    <div class="section-title">
+      <h2 data-ru="За что вы платите" data-en="What You Pay For">За что вы платите</h2>
+      <span class="tag" data-ru="5 ключевых ценностей" data-en="5 core values">5 ключевых ценностей</span>
+    </div>
+
+    <div class="value-grid">
+
+      <div class="value-card-block fadeup" style="grid-column: 1 / 3;"> 
+        <h3 data-ru="1. Визуальная ценность (Дизайн)" data-en="1. Visual Value (Design)">1. Визуальная ценность (Дизайн)</h3>
+        <p data-ru="Современный и красивый сайт → доверие и желание остаться. Уникальный дизайн (не шаблон). Поддержка фирменного стиля." data-en="Modern and beautiful design builds trust. Unique, non-template design. Brand style support.">
+          Современный и красивый сайт → доверие и желание остаться. Уникальный дизайн (не шаблон). Поддержка фирменного стиля.
+        </p>
+      </div>
+      
+      <div class="value-card-block fadeup">
+        <h3 data-ru="2. Функциональная ценность (Инструмент)" data-en="2. Functional Value (Tool)">2. Функциональная ценность (Инструмент)</h3>
+        <p data-ru="Продуманная структура. Подключение аналитики, форм заявок, мессенджеров. Быстрая загрузка и адаптация под телефоны." data-en="Thought-out structure. Integration of analytics, forms, messengers. Fast loading and mobile adaptation.">
+          Продуманная структура. Подключение аналитики, форм заявок, мессенджеров. Быстрая загрузка и адаптация под телефоны.
+        </p>
+      </div>
+
+      <div class="value-card-block fadeup">
+        <h3 data-ru="3. Маркетинговая ценность (Продажи)" data-en="3. Marketing Value (Sales)">3. Маркетинговая ценность (Продажи)</h3>
+        <p data-ru="Анализ ЦА перед созданием. Стратегия: боль → решение → доверие. Сайт заточен под рекламу (Яндекс, Google)." data-en="TA analysis. Strategy: pain → solution → trust. Website optimized for ads (Yandex, Google).">
+          Анализ ЦА перед созданием. Стратегия: боль → решение → доверие. Сайт заточен под рекламу (Яндекс, Google).
+        </p>
+      </div>
+
+      <div class="value-card-block fadeup">
+        <h3 data-ru="4. Экономическая ценность (Окупаемость)" data-en="4. Economic Value (ROI)">4. Экономическая ценность (Окупаемость)</h3>
+        <p data-ru="Стоимость сайта = инвестиция. Один-два клиента могут полностью окупить сайт. Долгосрочный эффект (работает 24/7)." data-en="Website cost = investment. 1-2 clients recoup the cost. Long-term 24/7 effect.">
+          Стоимость сайта = инвестиция. Один-два клиента могут полностью окупить сайт. Долгосрочный эффект (работает 24/7).
+        </p>
+      </div>
+
+      <div class="value-card-block fadeup">
+        <h3 data-ru="5. Человеческая ценность (Поддержка)" data-en="5. Human Value (Support)">5. Человеческая ценность (Поддержка)</h3>
+        <p data-ru="Общение «по-человечески». Гарантия на доработки. Возможность консультации после сдачи проекта." data-en="Human-friendly communication. Guarantee for refinements. Post-project consultation available.">
+          Общение «по-человечески». Гарантия на доработки. Возможность консультации после сдачи проекта.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<div class="container">
+<div class="section-title">
+<h2 data-ru="Почему именно мы" data-en="Why choose us">Почему именно мы</h2>
+<span class="tag" data-ru="Просто. Быстро. Доступно." data-en="Simple. Fast. Affordable.">Просто. Быстро. Доступно.</span>
+</div>
+<div class="grid feature-grid">
+<div class="card fadeup">
+<div class="tag" data-ru="Проблема" data-en="The Problem">Проблема</div>
+<h3 data-ru="Как профессионально представить свой бизнес?" data-en="How to professionally present your business?">Как профессионально представить свой бизнес?</h3>
+<p data-ru="Мы создадим профессиональный сайт, который сделает это за вас. Без стресса и лишних вопросов." data-en="We'll create a professional website that does it for you. Stress-free and no extra questions.">
+Мы создадим профессиональный сайт, который сделает это за вас. Без стресса и лишних вопросов.
+</p>
+</div>
+<div class="card fadeup">
+<div class="tag" data-ru="Скорость" data-en="Speed">Скорость</div>
+<h3 data-ru="Запуск за 4–7 дней" data-en="Launch in 4–7 days">Запуск за 4–7 дней</h3>
+<p data-ru="От идеи до готового сайта. Быстро и без головной боли. Вы сможете использовать его уже на следующей встрече." data-en="From idea to finished website. Fast and hassle-free. You can use it at your next meeting.">
+От идеи до готового сайта. Быстро и без головной боли. Вы сможете использовать его уже на следующей встрече.
+</p>
+</div>
+<div class="card fadeup">
+<div class="tag" data-ru="Простота" data-en="Simplicity">Простота</div>
+<h3 data-ru="От вас нужен только рассказ о бизнесе" data-en="All we need is your business story">От вас нужен только рассказ о бизнесе</h3>
+<p data-ru="Мы сами соберем всю информацию в продающий сайт. Просто расскажите о своих достижениях и кейсах." data-en="We'll gather all the info and build a selling website. Just tell us about your achievements and cases.">
+Мы сами соберем всю информацию в продающий сайт. Просто расскажите о своих достижениях и кейсах.
+</p>
+</div>
+</div>
+<div class="kpi fadeup">
+<div><b data-ru="50 000 ₸" data-en="50,000 ₸">50 000 ₸</b><div data-ru="фиксированная цена" data-en="fixed price">фиксированная цена</div></div>
+<div><b data-ru="4–7 дней" data-en="4–7 days">4–7 дней</b><div data-ru="срок разработки" data-en="development time">срок разработки</div></div>
+<div><b data-ru="100%" data-en="100%">100%</b><div data-ru="фокус на результат" data-en="result-focused">фокус на результат</div></div>
+</div>
+</div>
+</section>
+
+<section id="work" class="showcase fadeup">
+<div class="container">
+<div class="section-title">
+<h2 data-ru="Наши работы" data-en="Our works">Наши работы</h2>
+<span class="tag" data-ru="Результаты говорят сами за себя" data-en="Results speak for themselves">Результаты говорят сами за себя</span>
+</div>
+
+<div class="case-grid"> 
+
+  <div class="case-item fadeup">
+    <div class="case-image">
+      <img src="https://github.com/davadrivo/MIT-studio/blob/main/amoService22.png?raw=true" alt="Сайт для amoService">
+    </div>
+    <div class="case-content">
+      <h3 data-ru="amoService" data-en="amoService">amoService</h3>
+      
+      <div class="case-content-wrapper"> 
+          
+        <div class="case-metrics">
+          <h4 data-ru="Результаты за 2 недели:" data-en="Results in 2 weeks:">Результаты за 2 недели:</h4>
+          <ul>
+            <li data-ru="<b>+18</b> новых заявок на ремонт" data-en="<b>+18</b> new repair inquiries"><b>+18</b> новых заявок на ремонт</li>
+            <li data-ru="Средний чек вырос на <b>27%</b>" data-en="Average check increased by <b>27%</b>">Средний чек вырос на <b>27%</b></li>
+            <li data-ru="Клиенты стали чаще оставлять контакты через сайт" data-en="Clients more often leave contacts via website">Клиенты стали чаще оставлять контакты через сайт</li>
+          </ul>
+        </div>
+        
+        <div class="case-summary">
+          <h4 data-ru="Общий результат:" data-en="Overall result:">Общий результат:</h4>
+          <p data-ru="Сайт стал точкой входа для новых клиентов, помог увеличить количество звонков и записей." data-en="The website became the entry point for new clients, helping increase the number of calls and service appointments.">
+            Сайт стал точкой входа для новых клиентов, помог увеличить количество звонков и записей.
+          </p>
+        </div>
+        
+      </div>
+      </div>
+  </div>
+
+  <div class="case-item fadeup">
+    <div class="case-image">
+      <img src="https://github.com/davadrivo/MIT-studio/blob/main/MINOR22.png?raw=true" alt="Сайт для MINOR">
+    </div>
+    <div class="case-content">
+      <h3 data-ru="MINOR" data-en="MINOR">MINOR</h3>
+      
+      <div class="case-content-wrapper">
+          
+        <div class="case-metrics">
+          <h4 data-ru="Результаты за первый месяц:" data-en="Results in the first month:">Результаты за первый месяц:</h4>
+          <ul>
+            <li data-ru="<b>+12</b> заказов столиков через сайт" data-en="<b>+12</b> table reservations via website"><b>+12</b> заказов столиков через сайт</li>
+            <li data-ru="<b>+230</b> переходов с рекламы в Instagram" data-en="<b>+230</b> transitions from Instagram ads"><b>+230</b> переходов с рекламы в Instagram</li>
+            <li data-ru="Рост постоянных клиентов на <b>15%</b>" data-en="Increase in regular customers by <b>15%</b>">Рост постоянных клиентов на <b>15%</b></li>
+          </ul>
+        </div>
+        
+        <div class="case-summary">
+          <h4 data-ru="Общий результат:" data-en="Overall result:">Общий результат:</h4>
+          <p data-ru="Сайт показал себя как инструмент продвижения и брони столиков, усилил лояльность постоянных гостей." data-en="The website proved to be a powerful tool for promotion and table booking, strengthening the loyalty of regular guests.">
+            Сайт показал себя как инструмент продвижения и брони столиков, усилил лояльность постоянных гостей.
+          </p>
+        </div>
+      
+      </div>
+      </div>
+  </div>
+  
+  <div class="case-item fadeup">
+    <div class="case-image">
+      <img src="https://github.com/davadrivo/MIT-studio/blob/main/%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%BC%D0%B8%D1%8022.png?raw=true" alt="Сайт для ПРОДУКТмир">
+    </div>
+    <div class="case-content">
+      <h3 data-ru="ПРОДУКТмир" data-en="PRODUKTmir">ПРОДУКТмир</h3>
+      
+      <div class="case-content-wrapper">
+      
+        <div class="case-metrics">
+          <h4 data-ru="Результаты за 3 недели:" data-en="Results in 3 weeks:">Результаты за 3 недели:</h4>
+          <ul>
+            <li data-ru="<b>+36</b> новых заказов онлайн" data-en="<b>+36</b> new orders online"><b>+36</b> новых заказов онлайн</li>
+            <li data-ru="<b>+70%</b> трафика пришло с рекламы в Яндекс" data-en="<b>+70%</b> traffic came from Yandex ads"><b>+70%</b> трафика пришло с рекламы в Яндекс</li>
+            <li data-ru="Время на сайте — в среднем <b>3,2 минуты</b>" data-en="Time on site — average <b>3.2 minutes</b>">Время на сайте — в среднем <b>3,2 минуты</b></li>
+          </ul>
+        </div>
+        
+        <div class="case-summary">
+          <h4 data-ru="Общий результат:" data-en="Overall result:">Общий результат:</h4>
+          <p data-ru="Сайт стал точкой удобного заказа продуктов, увеличил количество повторных клиентов." data-en="The website became a convenient ordering point for products, increasing the number of repeat customers.">
+            Сайт стал точкой удобного заказа продуктов, увеличил количество повторных клиентов.
+          </p>
+        </div>
+      
+      </div>
+      </div>
+  </div>
+  
+</div>
+</div>
+</section>
+
+<section id="pricing" class="cta fadeup">
+<div class="container">
+<div class="cta-box">
+<div>
+<h2 data-ru="Стоимость" data-en="Pricing">Стоимость</h2>
+<p data-ru="Одностраничный сайт для бизнеса за <span style='font-weight:700'> 50 000 ₸</span>! Прозрачно и без скрытых платежей." data-en="One-page website for business for <span style='font-weight:700'>50,000 ₸</span>! Transparent and no hidden fees.">
+Одностраничный сайт для бизнеса за <span style='font-weight:700'>50 000 ₸</span>! Прозрачно и без скрытых платежей.
+</p>
+</div>
+<a class="btn" data-anchor="contact" data-ru="Заказать" data-en="Order">Заказать</a>
+</div>
+</div>
+</section>
+
+<section id="contact" class="cta fadeup">
+<div class="container">
+<div class="cta-box" style="grid-template-columns:1fr;">
+<div style="text-align:center;">
+<h2 data-ru="Для заказа напишите нам" data-en="To order, write to us">Для заказа напишите нам</h2>
+<p data-ru="Менеджер ответит вам в течение 5 минут" data-en="The manager will respond to you within 5 minutes">Менеджер ответит вам в течение 5 минут</p>
+<div class="contact-actions">
+<a class="btn contact-action-btn" href="https://t.me/MitStudioOfficial" target="_blank" data-ru="Написать в Telegram" data-en="Write on Telegram">Написать в Telegram</a>
+<a class="btn contact-action-btn" href="mailto:davidmitin3@gmail.com" data-ru="Написать на почту" data-en="Write on Email">Написать на почту</a>
+<a class="btn contact-action-btn" href="https://wa.me/77071806939" target="_blank" data-ru="Написать в WhatsApp" data-en="Write on WhatsApp">Написать в WhatsApp</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="footer fadeup">
+<div class="container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+<div>© <span id="y"></span> МИТ Студия</div>
+<div style="display:flex;gap:16px;align-items:center">
+<a href="https://t.me/DavidArthunt" target="_blank">Telegram</a>
+<a href="mailto:davidmitin3@gmail.com">Email</a>
+<a href="https://wa.me/77071806939" target="_blank">WhatsApp</a>
+</div>
+</div>
+</footer>
+
+<script>
+// Год в футере
+document.getElementById('y').textContent = new Date().getFullYear();
+
+// Перевод текста
+const langRU = document.getElementById('lang-ru');
+const langEN = document.getElementById('lang-en');
+const elements = document.querySelectorAll('[data-ru], [data-text-ru]');
+
+
+// ИСПРАВЛЕННАЯ ФУНКЦИЯ setLanguage
+function setLanguage(lang) {
+elements.forEach(el => {
+const textData = (lang === 'ru') ? el.dataset.ru : el.dataset.en;
+
+// Добавляем 'LI' в список тегов, которым разрешен HTML (для жирного текста в метриках)
+if (el.dataset.ru && (el.tagName === 'H1' || el.tagName === 'A' || el.tagName === 'P' || el.tagName === 'H2' || el.tagName === 'LI')) {
+el.innerHTML = textData;
+} else if (el.dataset.ru) {
+el.textContent = textData;
+} else if (el.dataset.textRu) {
+el.textContent = (lang === 'ru') ? el.dataset.textRu : el.dataset.textEn;
+}
+});
+
+document.querySelectorAll('.lang a').forEach(link => {
+link.classList.remove('active');
+});
+(lang === 'ru') ? langRU.classList.add('active') : langEN.classList.add('active');
+}
+
+langRU.addEventListener('click', () => setLanguage('ru'));
+langEN.addEventListener('click', () => setLanguage('en'));
+
+// Навигация (только для внутренних ссылок)
+document.querySelectorAll('.nav-link, .btn:not(.contact-action-btn)').forEach(link => {
+link.addEventListener('click', e => {
+e.preventDefault();
+const target = document.getElementById(link.dataset.anchor);
+if (target) {
+target.scrollIntoView({ behavior: 'smooth' });
+}
+});
+});
+
+// Появление элементов при скролле
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('show');
+}
+});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fadeup').forEach(el => observer.observe(el));
+// --- Анимация мокапа ---
+const mockup = document.getElementById('animated-mockup');
+
+// ЗАМЕНИТЕ ЭТИ URL на ВАШИ РЕАЛЬНЫЕ ССЫЛКИ!
+const mockupImages = [
+  'https://github.com/davadrivo/MIT-studio/blob/main/%D0%9F%D0%A0%D0%9E%D0%94%D0%9A%D0%A3%D0%A2%D0%BC%D0%B8%D1%80.png?raw=true', // Текущая (1-я)
+  'https://github.com/davadrivo/MIT-studio/blob/main/amoService.png?raw=true',                     // Пример 2
+  'https://github.com/davadrivo/MIT-studio/blob/main/MINOR.png?raw=true'                          // Пример 3
+];
+
+let currentIndex = 0;
+
+function changeMockupImage() {
+  // 1. Делаем картинку невидимой (плавный уход)
+  mockup.style.opacity = 0;
+
+  // Ждем, пока анимация прозрачности завершится (1000 мс = 1 секунда, как в CSS)
+  setTimeout(() => {
+    // 2. Меняем источник картинки
+    currentIndex = (currentIndex + 1) % mockupImages.length; // Переход к следующему индексу
+    
+    // Загружаем новую картинку
+    const nextImage = new Image();
+    nextImage.src = mockupImages[currentIndex];
+    
+    // Когда новая картинка загрузится, меняем SRC и показываем
+    nextImage.onload = () => {
+      mockup.src = mockupImages[currentIndex];
+      // 3. Делаем картинку видимой (плавное появление)
+      mockup.style.opacity = 1;
+    };
+    
+  }, 700); // Должно соответствовать времени transition в CSS
+}
+
+setInterval(changeMockupImage, 5000);
+</script>
+
+</body>
+</html>
