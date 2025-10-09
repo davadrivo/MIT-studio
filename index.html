@@ -307,7 +307,7 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 <header class="nav">
 <div class="container nav-inner">
 <a href="#" class="brand">
-<img src="https://github.com/davadrivo/MIT-studio/blob/main/%D0%9B%D0%BE%D0%B3%D0%BE.png?raw=true" alt="МИТ Студия Логотип">
+<img src="https://github.com/davadrivo/MIT-studio/blob/main/logo.png?raw=true" alt="МИТ Студия Логотип">
 <span></span>
 </a>
 <nav>
@@ -336,10 +336,10 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 </p>
 <a class="btn" data-anchor="pricing" data-ru="Заказать за 50 000₸" data-en="Order for 50,000₸">
 Заказать за 50 000₸
-</a>
+</a>  
 </div>
 <div class="hero-image-move mockup-container">
-  <img id="animated-mockup" src="https://github.com/davadrivo/MIT-studio/blob/main/%D0%9F%D0%A0%D0%9E%D0%94%D0%9A%D0%A3%D0%A2%D0%BC%D0%B8%D1%80.png?raw=true" alt="Превью сайта" class="mockup-content">
+  <img id="animated-mockup" src="https://github.com/davadrivo/MIT-studio/blob/main/productmir.png?raw=true" alt="Превью сайта" class="mockup-content">
   <img src="https://github.com/davadrivo/MIT-studio/blob/main/212.png?raw=true" alt="Мокап рамки ноутбука" class="mockup-frame">
 </div>
 </div>
@@ -459,7 +459,7 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 
   <div class="case-item fadeup">
     <div class="case-image">
-      <img src="https://github.com/davadrivo/MIT-studio/blob/main/amoService22.png?raw=true" alt="Сайт для amoService">
+      <img src="https://github.com/davadrivo/MIT-studio/blob/main/amoservice22.png?raw=true" alt="Сайт для amoService">
     </div>
     <div class="case-content">
       <h3 data-ru="amoService" data-en="amoService">amoService</h3>
@@ -488,7 +488,7 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 
   <div class="case-item fadeup">
     <div class="case-image">
-      <img src="https://github.com/davadrivo/MIT-studio/blob/main/MINOR22.png?raw=true" alt="Сайт для MINOR">
+      <img src="https://github.com/davadrivo/MIT-studio/blob/main/minor22.png?raw=true" alt="Сайт для MINOR">
     </div>
     <div class="case-content">
       <h3 data-ru="MINOR" data-en="MINOR">MINOR</h3>
@@ -517,7 +517,7 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
   
   <div class="case-item fadeup">
     <div class="case-image">
-      <img src="https://github.com/davadrivo/MIT-studio/blob/main/%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%BC%D0%B8%D1%8022.png?raw=true" alt="Сайт для ПРОДУКТмир">
+      <img src="https://github.com/davadrivo/MIT-studio/blob/main/p.png?raw=true" alt="Сайт для ПРОДУКТмир">
     </div>
     <div class="case-content">
       <h3 data-ru="ПРОДУКТмир" data-en="PRODUKTmir">ПРОДУКТмир</h3>
@@ -636,7 +636,7 @@ target.scrollIntoView({ behavior: 'smooth' });
 });
 });
 
-// Появление элементов при скролле
+
 const observer = new IntersectionObserver(entries => {
 entries.forEach(entry => {
 if (entry.isIntersecting) {
@@ -645,14 +645,14 @@ entry.target.classList.add('show');
 });
 }, { threshold: 0.15 });
 document.querySelectorAll('.fadeup').forEach(el => observer.observe(el));
-// --- Анимация мокапа ---
+
 const mockup = document.getElementById('animated-mockup');
 
-// ЗАМЕНИТЕ ЭТИ URL на ВАШИ РЕАЛЬНЫЕ ССЫЛКИ!
+
 const mockupImages = [
   'https://github.com/davadrivo/MIT-studio/blob/main/%D0%9F%D0%A0%D0%9E%D0%94%D0%9A%D0%A3%D0%A2%D0%BC%D0%B8%D1%80.png?raw=true', // Текущая (1-я)
-  'https://github.com/davadrivo/MIT-studio/blob/main/amoService.png?raw=true',                     // Пример 2
-  'https://github.com/davadrivo/MIT-studio/blob/main/MINOR.png?raw=true'                          // Пример 3
+  'https://github.com/davadrivo/MIT-studio/blob/main/amoservice.png?raw=true',                     // Пример 2
+  'https://github.com/davadrivo/MIT-studio/blob/main/minor.png?raw=true'                          // Пример 3
 ];
 
 let currentIndex = 0;
