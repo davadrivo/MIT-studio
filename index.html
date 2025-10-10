@@ -460,7 +460,7 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 
   <div class="case-item fadeup">
     <div class="case-image">
-      <img src="https://github.com/davadrivo/MIT-stu dio/blob/main/amoservice22.png?raw=true" alt="Сайт для amoService">
+      <img src="https://github.com/davadrivo/MIT-studio/blob/main/amoservice22.png?raw=true" alt="Сайт для amoService">
     </div>
     <div class="case-content">
       <h3 data-ru="amoService" data-en="amoService">amoService</h3>
@@ -551,20 +551,30 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 
 <section id="pricing" class="cta fadeup">
   <div class="container">
-    <div class="cta-box price-box" style="grid-template-columns: 1fr;">
-      <div class="price-content" style="text-align:center;">
-        <h2 data-ru="Одностраничный сайт для бизнеса — 50 000 ₸" data-en="One-page business website — 50,000 ₸">
+    <div class="cta-box price-box">
+      <div class="price-content">
+        <h2 
+          data-ru="Одностраничный сайт для бизнеса — 50 000 ₸" 
+          data-en="One-page business website — 50,000 ₸">
           Одностраничный сайт для бизнеса — <span style="color:var(--brand)">50 000 ₸</span>
         </h2>
-        <p data-ru="Фиксированная цена без скрытых платежей, доплат и подписок.<br>Вы получаете готовый сайт с дизайном, структурой и подключёнными формами заявок." 
-           data-en="Fixed price with no hidden fees, surcharges, or subscriptions.<br>You get a complete website with design, structure, and integrated forms.">
+
+        <p class="price-main" 
+           data-ru="Фиксированная цена без скрытых платежей, доплат и подписок.<br>Вы получаете готовый сайт с дизайном, структурой и подключёнными формами заявок."
+           data-en="Fixed price with no hidden fees, extras, or subscriptions.<br>You get a complete website with design, structure, and connected contact forms.">
           Фиксированная цена без скрытых платежей, доплат и подписок.<br>
           Вы получаете готовый сайт с дизайном, структурой и подключёнными формами заявок.
         </p>
-        <p class="price-note" data-ru="1–2 клиента с сайта полностью окупают вложение." data-en="1–2 clients from the site fully recoup your investment.">
+
+        <p class="price-note" 
+           data-ru="1–2 клиента с сайта полностью окупают вложение."
+           data-en="1–2 clients from the site completely pay off the investment.">
           1–2 клиента с сайта полностью окупают вложение.
         </p>
-        <a class="btn" data-anchor="contact" data-ru="Заказать сайт за 50 000 ₸" data-en="Order for 50,000 ₸">
+
+        <a class="btn" data-anchor="contact" 
+           data-ru="Заказать сайт за 50 000 ₸" 
+           data-en="Order a website for 50,000 ₸">
           Заказать сайт за 50 000 ₸
         </a>
       </div>
@@ -577,48 +587,90 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 22px;
-  padding: 60px 20px;
-  box-shadow: 0 10px 24px rgba(180,132,92,.1);
-  transition: box-shadow .3s ease, transform .3s ease;
+  padding: 45px 1px;
+  box-shadow: 0 10px 24px rgba(180,132,92,.08);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 360px;
 }
-.price-box:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px rgba(180,132,92,.15);
+
+.price-content {
+  text-align: center;
+  max-width: 850px;
 }
+
 .price-content h2 {
   font-size: clamp(26px, 4vw, 34px);
   margin-bottom: 18px;
   font-weight: 800;
+  color: var(--text);
 }
-.price-content p {
+
+.price-main {
   font-size: 18px;
-  color: var(--muted);
+  color: var(--text);
   line-height: 1.6;
   margin: 0 auto 16px;
-  max-width: 700px;
 }
+
 .price-note {
   font-size: 15px;
-  color: var(--brand);
+  color: var(--muted);
   font-style: italic;
-  margin-bottom: 26px;
+  margin-bottom: 28px;
 }
 </style>
 
 <section id="contact" class="cta fadeup">
-<div class="container">
-<div class="cta-box" style="grid-template-columns:1fr;">
-<div style="text-align:center;">
-<h2 data-ru="Для заказа напишите нам" data-en="To order, write to us">Для заказа напишите нам</h2>
-<p data-ru="Менеджер ответит вам в течение 5 минут" data-en="The manager will respond to you within 5 minutes">Менеджер ответит вам в течение 5 минут</p>
-<div class="contact-actions">
-<a class="btn contact-action-btn" href="https://t.me/MitStudioOfficial" target="_blank" data-ru="Написать в Telegram" data-en="Write on Telegram">Написать в Telegram</a>
-<a class="btn contact-action-btn" href="mailto:davidmitin3@gmail.com" data-ru="Написать на почту" data-en="Write on Email">Написать на почту</a>
-<a class="btn contact-action-btn" href="https://wa.me/77071806939" target="_blank" data-ru="Написать в WhatsApp" data-en="Write on WhatsApp">Написать в WhatsApp</a>
-</div>
-</div>
-</div>
-</div>
+  <div class="container">
+    <div class="cta-box" style="grid-template-columns:1fr;">
+      <div style="text-align:center;">
+        <h2 
+          data-ru="Для заказа напишите нам" 
+          data-en="To order, write to us"
+          style="font-size:clamp(26px,4vw,34px); font-weight:800; margin-bottom:8px; color:var(--text);">
+          Для заказа напишите нам
+        </h2>
+
+        <p 
+          data-ru="Менеджер ответит вам в течение 5 минут" 
+          data-en="Our manager will respond within 5 minutes"
+          style="font-size:15px; font-style:italic; color:#8b7a68; margin-top:0; margin-bottom:24px;">
+          Менеджер ответит вам в течение 5 минут
+        </p>
+
+        <div class="contact-actions" style="display:flex; justify-content:center; flex-wrap:wrap; gap:16px;">
+          <a 
+            class="btn contact-action-btn" 
+            href="https://t.me/MitStudioOfficial" 
+            target="_blank"
+            data-ru="Написать в Telegram"
+            data-en="Write in Telegram">
+            Написать в Telegram
+          </a>
+
+          <a 
+            class="btn contact-action-btn" 
+            href="mailto:davidmitin3@gmail.com"
+            data-ru="Написать на почту"
+            data-en="Write by Email">
+            Написать на почту
+          </a>
+
+          <a 
+            class="btn contact-action-btn" 
+            href="https://wa.me/77071806939" 
+            target="_blank"
+            data-ru="Написать в WhatsApp"
+            data-en="Write in WhatsApp">
+            Написать в WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 </main>
