@@ -21,6 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
 <style>
 #animated-mockup {
   transition: opacity 0.7s ease-in-out; /* Плавный переход за 1 секунду */
@@ -301,6 +303,180 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
   }
 }
 
+/* === АДАПТАЦИЯ HERO-БЛОКА И ОСНОВНЫХ ЭЛЕМЕНТОВ === */
+@media (max-width: 1100px) {
+  .hero-grid {
+    grid-template-columns: 1fr; /* Всё в одну колонку */
+    text-align: center;
+  }
+
+  .hero-image-move {
+    transform: none; /* Убираем сдвиги ноутбука */
+    margin-top: 20px;
+  }
+
+  .mockup-container {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 7vw, 44px);
+  }
+
+  .hero p {
+    font-size: clamp(15px, 3.5vw, 18px);
+  }
+
+  .hero .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* === Общие отступы между секциями === */
+section {
+  padding: clamp(40px, 6vw, 80px) 0;
+}
+
+/* === Убираем анимации на телефонах === */
+@media (max-width: 600px) {
+  .fadeup {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}
+/* 🔧 Исправление горизонтальной прокрутки на мобильных */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .value-card-block[style*="grid-column: 1 / 3"] {
+    grid-column: auto !important;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Отступ после подзаголовков (тегов) */
+  .section-title {
+    margin-bottom: 28px; /* увеличим нижний отступ */
+  }
+
+  /* Дополнительно чуть увеличим отступы секций */
+  section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+
+/* ===== АНИМАЦИИ (обновлённые) ===== */
+
+/* Плавное появление блоков */
+.fadeup {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fadeup.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Плавные переходы для элементов */
+a, button, .btn, img, .card, .cta-box, .portfolio-item, .feature-box {
+  transition: all 0.35s ease-in-out;
+}
+
+/* ===== МЯГКИЕ ТЕНИ (улучшено) ===== */
+.card, .cta-box, .portfolio-item, .value-item, .feature-box, .case-item, .value-card-block {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: 
+    box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Мягкое проявление теней при наведении */
+.card:hover,
+.cta-box:hover,
+.value-item:hover,
+.case-item:hover,
+.value-card-block:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Для секций без увеличения (например "Почему именно мы") */
+.feature-box:hover {
+  transform: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Для "Наши работы" — лёгкое увеличение и мягкая тень */
+.portfolio-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Для блока "За что вы платите" — плавная тень без резкого движения */
+.value-card-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+}
+/* ===== "НАШИ РАБОТЫ" (увеличение) ===== */
+.portfolio-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== "ПОЧЕМУ ИМЕННО МЫ" (без увеличения) ===== */
+.feature-box:hover {
+  transform: none;
+}
+
+/* ===== "ЗА ЧТО ВЫ ПЛАТИТЕ" (мягкая тень) ===== */
+.value-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Изображения плавно проявляются */
+img {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+img.loaded {
+  opacity: 1;
+}
+
+/* Кнопки */
+.btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.mockup-gif {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.mockup-gif:hover {
+  transform: scale(1.02);
+}
+
 </style>
 </head>
 <body>
@@ -335,14 +511,15 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 <p data-ru="Быстрый, профессиональный и доступный одностраничный сайт, который представит ваш бизнес быстро и легко за <span style='font-weight:700'>50 000₸</span>" data-en="A quick, professional, and affordable one-page website that presents your business quickly and easily <br>for <span style='font-weight:700'>50 000₸</span>!">
 Быстрый, профессиональный и доступный одностраничный сайт, который представит ваш бизнес быстро и легко за <span style='font-weight:700'>50 000₸</span>!
 </p>
-<a class="btn" data-anchor="pricing" data-ru="Заказать за 50 000₸" data-en="Order for 50,000₸">
-Заказать за 50 000₸
-</a>  
 </div>
+
 <div class="hero-image-move mockup-container">
-  <img id="animated-mockup" src="https://github.com/davadrivo/MIT-studio/blob/main/productmir.png?raw=true" alt="Превью сайта" class="mockup-content">
-  <img src="https://github.com/davadrivo/MIT-studio/blob/main/212.png?raw=true" alt="Мокап рамки ноутбука" class="mockup-frame">
+  <img src="https://github.com/davadrivo/MIT-studio/blob/main/Timeline%201%20(2).gif?raw=true" alt="Анимированный ноутбук" class="mockup-gif">
 </div>
+
+<a class="btn" data-anchor="pricing" data-ru="Заказать за 50 000₸" data-en="Order for 50,000₸" style="margin-top: 28px; display: flex; justify-content: center;">
+  Заказать за 50 000₸
+</a>
 </div>
 </section>
 
@@ -621,6 +798,18 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
   font-style: italic;
   margin-bottom: 28px;
 }
+
+/* 🔧 Исправление горизонтальной прокрутки на мобильных */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+* {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 </style>
 
 <section id="contact" class="cta fadeup">
@@ -661,7 +850,7 @@ html,body{height:100%;scroll-behavior:smooth;margin:0;font-family:Inter,system-u
 
           <a 
             class="btn contact-action-btn" 
-            href="https://wa.me/77071806939" 
+            href="https://wa.me/message/V2SRM2F523MBM1" 
             target="_blank"
             data-ru="Написать в WhatsApp"
             data-en="Write in WhatsApp">
@@ -741,41 +930,28 @@ entry.target.classList.add('show');
 }, { threshold: 0.15 });
 document.querySelectorAll('.fadeup').forEach(el => observer.observe(el));
 
-const mockup = document.getElementById('animated-mockup');
 
+</script>
 
-const mockupImages = [
-  'https://github.com/davadrivo/MIT-studio/blob/main/%D0%9F%D0%A0%D0%9E%D0%94%D0%9A%D0%A3%D0%A2%D0%BC%D0%B8%D1%80.png?raw=true', // Текущая (1-я)
-  'https://github.com/davadrivo/MIT-studio/blob/main/amoservice.png?raw=true',                     // Пример 2
-  'https://github.com/davadrivo/MIT-studio/blob/main/minor.png?raw=true'                          // Пример 3
-];
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Анимация появления блоков
+  const faders = document.querySelectorAll('.fadeup');
+  const options = { threshold: 0.2 };
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    });
+  }, options);
+  faders.forEach(fader => appearOnScroll.observe(fader));
 
-let currentIndex = 0;
-
-function changeMockupImage() {
-  // 1. Делаем картинку невидимой (плавный уход)
-  mockup.style.opacity = 0;
-
-  // Ждем, пока анимация прозрачности завершится (1000 мс = 1 секунда, как в CSS)
-  setTimeout(() => {
-    // 2. Меняем источник картинки
-    currentIndex = (currentIndex + 1) % mockupImages.length; // Переход к следующему индексу
-    
-    // Загружаем новую картинку
-    const nextImage = new Image();
-    nextImage.src = mockupImages[currentIndex];
-    
-    // Когда новая картинка загрузится, меняем SRC и показываем
-    nextImage.onload = () => {
-      mockup.src = mockupImages[currentIndex];
-      // 3. Делаем картинку видимой (плавное появление)
-      mockup.style.opacity = 1;
-    };
-    
-  }, 700); // Должно соответствовать времени transition в CSS
-}
-
-setInterval(changeMockupImage, 5000);
+  // Плавное появление картинок
+  document.querySelectorAll('img').forEach(img => {
+    img.onload = () => img.classList.add('loaded');
+  });
+});
 </script>
 
 </body>
